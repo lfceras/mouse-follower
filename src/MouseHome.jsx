@@ -17,6 +17,15 @@ const MouseHome = () => {
       window.removeEventListener('pointermove', handleMove)
     }
   }, [enabled])
+
+  useEffect(()=>{
+    document.body.classList.toggle('no-cursor', enabled)
+
+    return ()=>{
+      document.body.classList.remove('no-cursor')
+    }
+
+  },[enabled])
   return (
     <>
       <h1>Mouse Follower</h1>
